@@ -1,0 +1,176 @@
+Version 6.1.0
+Added
+- High Performance Order Storage
+
+Fixed
+- Critical error when a product have been deleted
+
+Version 6.0.1
+Fixed
+- PaymentOrder.Payer.ConsumerProfileRef: Both ConsumerProfileRef and PayerReference cannot be set at the same time.
+
+Version 6.0.0
+Added
+- Added method `initiatePaymentOrderUnscheduledPurchase($orderId, $unscheduledToken)`
+- Added method `savePaymentOrderTokens($orderId)`
+- Added method `deletePaymentToken($paymentToken)`
+
+Changed
+- Changed method parameters `initiatePaymentOrderPurchase($orderId, $consumerProfileRef = null, $genPaymentToken = false, $genRecurrenceToken = false, $genUnscheduledToken = false)`
+- Changed method parameters `initiatePaymentOrderVerify($orderId, $genPaymentToken = false, $genRecurrenceToken = false, $genUnscheduledToken = false)`
+- Changed method parameters `captureInvoice($orderId, array $items = [])`
+
+Version 5.3.0
+Changed
+- Improved messages of exceptions
+
+Added
+- Added method `formatErrorMessage($responseBody)`
+
+Version 5.2.1
+Changed
+- Removed the workaround in WC_Adapter
+
+Version 5.2.0
+Added
+- Added method `isCreditMemoExist($transactionId)`
+
+Changed
+- Changed method parameters `captureCheckout($orderId, array $items = [])`
+- Changed method parameters `refundCheckout($orderId, array $items = [])`
+- Changed method parameters `captureInvoice($orderId, array $items = [])`
+
+Fixed
+- Fixed deprecation notice
+
+Version 5.1.0
+Changed
+- Fix User Agent string
+- Update sdk
+
+Version 5.0.1
+Changed
+- Fix order lines of full refund
+
+Version 5.0.0
+Added
+- Implemented Adapter::processTransactionObject() method to handle capture/cancel/refund actions
+- WC Adapter: add wp filter `swedbank_pay_transaction_object`
+
+Version 4.2.0
+Added
+- Add RestrictedToInstruments
+
+Changed
+- Fix `setPayeeReference()`
+- Fix `setVatAmount()`
+
+Version 4.1.1
+Changed
+- Add details of failed transactions
+
+Version 4.1.0
+Added
+- Partial capture and refund
+- Added `createCreditMemo()` method
+- Subscriptions: add payment meta and tokens from parent order
+
+Changed
+- Improved `processTransaction()` method
+- Code optimization
+
+Version 4.0.4
+Added
+- `Problem` class
+- `getProblem()` method in `Transaction` class
+
+Changed
+- Prevent order cancellation if have failed transaction
+- Improved order notes
+- Fixed stock reducing on authorization
+
+Version 4.0.3
+Changed
+- Fixed order status update in `updateOrderStatus()`
+- Fixed token saving in `savePaymentToken()`
+- Logs clean up
+
+Version 4.0.2
+Changed
+- Fixed order actions of the checkout
+- Fixed: Uncaught Error: Call to a member function getReference() on array
+
+Version 4.0.1
+Changed
+- Fixed CC types options
+
+Version 4.0.0
+Added
+- Update Credit card and Checkout methods: use objects from sdk library
+- Add debug logging
+- Filters for product classes
+- Additional filters
+
+Changed
+- Fix Swish description
+- Refund fixes of Checkout
+- Fix transaction id
+- Update tests
+
+Version 3.1.0
+* Implemented `paymentUrl` feature
+* Update `initiateConsumerSession()` method
+
+Version 3.0.1
+* Add InitiatingSystemUserAgent
+* Ignore verifications which have failed transaction state
+* Rename `getPanEnrolled` to `isPanEnrolled()`
+* Update `fetchTransactionsAndUpdateOrder` to allow use paymentId of the checkout
+* Save transactions which have been processed on the order
+
+Version 3.0.0
+* Renamed `getMerchantToken()` to `getAccessToken()`
+
+Version 2.1.0
+* Add `checkout-draft` status
+* Don't change the order status if it was captured before
+* Use $transactionNumber as parameter name
+* Update `getOrderStatus`. Use unknown order status if needs
+* Update interfaces
+
+Version 2.0.0
+* Make order as "refunded" on full refund only
+* Make `log()` to be public
+* Save tokens if possible
+* Fix problem with trial products
+* Fix callbackUrl for payment change or verification
+* Implemented `updateTransactionsOnFailure()`
+* Add 'hostUrls' to Swish and Card method
+* Add payer information sending optional
+* Invoice fixes
+* Force a new DB read for meta data when getting order data
+* Use save instead of save_meta_data
+* Update Trustly::initiateTrustlyPayment()
+* Update Mobilepay::initiateMobilepayPayment()
+* Add additional property checks in getConfiguration() method
+* Implemented Trustly payment method
+* Add items parameter to refundCheckout() method
+* Improve filters
+* Implemented Mobilepay method
+* Implemented of processing of Verification transactions
+* Implemented addOrderNote()
+* Implemented canUpdateOrderStatus()
+* Sort transactions by date
+* Implemented fetchTransactionsAndUpdateOrder() method
+* Add shippingAddress parameter if order is shippable only
+* Make cardholder as optional parameter
+* Make payer as optional parameter
+* Implemented method allows UnscheduledPurchase
+* Renamed initiateNewCreditCardPayment to initiateVerifyCreditCardPayment
+* Added logoUrl
+* Fixes for msisdn, homePhoneNumber, workPhoneNumber
+* Make payment_token_class property optional
+* Add methods of the checkout recurring
+
+Version 1.0.0
+* First release
